@@ -85,5 +85,18 @@
             <scope>system</scope>
             <systemPath>${basedir}/libs/ProtocolLib.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>org.cloverservices</groupId>
+            <artifactId>worldguard</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/libs/WorldGuard-6.2.2.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>

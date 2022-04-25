@@ -1,17 +1,25 @@
 package org.cloverservices.invisregions;
 
-import org.bukkit.plugin.java.JavaPlugin;
+import com.massivecraft.massivecore.MassivePlugin;
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
+import lombok.Getter;
+import org.cloverservices.invisregions.coll.MConfColl;
+import org.cloverservices.invisregions.engine.EngineVisibility;
 
-public final class CloverInvisRegions extends JavaPlugin {
+@Getter
+public final class CloverInvisRegions extends MassivePlugin {
+
+    public WorldGuardPlugin worldGuard;
+    public MConfColl mConfColl;
 
     @Override
-    public void onEnable() {
-        // Plugin startup logic
+    public void onEnableInner() {
+        this.worldGuard = (WorldGuardPlugin)this.getServer().getPluginManager().getPlugin("WorldGuard");
 
+        this.mConfColl = new MConfColl(this);
+        this.mConfColl.setActive(true);
+
+        this.activate(new EngineVisibility(this));
     }
 
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
-    }
 }
