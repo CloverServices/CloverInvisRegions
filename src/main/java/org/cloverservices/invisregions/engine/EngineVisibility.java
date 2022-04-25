@@ -28,7 +28,13 @@ public class EngineVisibility extends Engine {
 
         if (MUtil.isNpc(player)) return;
         if (!(event.getFrom().getBlockX() == event.getTo().getBlockX()) && (event.getFrom().getBlockZ() == event.getTo().getBlockZ()) && (event.getFrom().getBlockY() == event.getTo().getBlockY())) return;
-        if (!isInRegion(player)) return;
+        if (!isInRegion(player)) {
+            for (final Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+                if (this.entityHider.canSee(player, onlinePlayer)) return;
+                this.entityHider.showEntity(player, onlinePlayer);
+            }
+            return;
+        }
 
         for (final Player onlinePlayer : Bukkit.getOnlinePlayers()) {
             this.entityHider.hideEntity(player, onlinePlayer);
