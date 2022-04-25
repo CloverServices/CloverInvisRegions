@@ -2,5 +2,5 @@ name: CloverInvisRegions
 version: '${project.version}'
 main: org.cloverservices.invisregions.CloverInvisRegions
 depend: [ MassiveCore, ProtocolLib, WorldGuard ]
-authors: [ Ministry ]
+authors: [ Ministry, PorkSkulls ]
 description: Invisible regions made by Clover Services!
